@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Aqua Built Pools & Construction — premium swimming pools, renovations, tiles, flooring and property services.">
+<title>Aqua Built Pools & Construction</title>
+<style>
+:root{
+  --navy:#071923;--navy2:#0c2632;--cyan:#08b9d5;--cyan2:#087f99;--ink:#10212a;
+  --muted:#65747c;--line:#dfe7ea;--paper:#f6f8f8;--white:#fff;--shadow:0 18px 50px rgba(7,25,35,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--paper);line-height:1.55}
+a{text-decoration:none;color:inherit} button,input,select,textarea{font:inherit}
+.container{width:min(1180px,92%);margin:auto}
+.nav{position:absolute;z-index:20;top:0;left:0;width:100%;padding:20px 0;color:#fff;border-bottom:1px solid rgba(255,255,255,.15)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:25px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.5px}
+.logo-mark{width:35px;height:35px;border:2px solid var(--cyan);display:grid;place-items:center;color:var(--cyan);border-radius:5px;font-size:17px}
+.logo small{display:block;font-size:9px;letter-spacing:2px;opacity:.75}
+.nav-links{display:flex;gap:26px;font-size:12px;font-weight:700;text-transform:uppercase}
+.nav-links a{opacity:.88;transition:.25s}.nav-links a:hover{color:var(--cyan)}
+.btn{border:0;background:var(--cyan);color:#fff;padding:13px 21px;border-radius:3px;font-weight:800;font-size:12px;letter-spacing:.3px;cursor:pointer;transition:.25s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(8,185,213,.25)}
+.btn.outline{background:transparent;border:1px solid rgba(255,255,255,.7)}
+.hero{min-height:680px;color:#fff;position:relative;display:flex;align-items:flex-end;overflow:hidden;background:#09232e}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,16,22,.82),rgba(3,16,22,.32) 55%,rgba(3,16,22,.28)),url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2200&q=88") center/cover}
+.hero-content{position:relative;padding:170px 0 70px;width:720px;animation:rise .8s ease both}
+.kicker{font-size:11px;color:var(--cyan);font-weight:900;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:10px}
+.hero h1{font-size:clamp(42px,6vw,76px);line-height:.98;letter-spacing:-3px;margin-bottom:20px}
+.hero p{font-size:17px;max-width:650px;color:#e6eef0;margin-bottom:28px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.stats{display:flex;gap:45px;margin-top:58px}.stat strong{font-size:27px;display:block}.stat span{font-size:11px;color:#c7d4d8}
+section{padding:90px 0}.section-head{margin-bottom:35px;max-width:720px}.section-head h2{font-size:38px;line-height:1.08;letter-spacing:-1.5px}.section-head p{color:var(--muted);margin-top:10px}
+.grid{display:grid;gap:18px}.services{grid-template-columns:repeat(6,1fr)}
+.card{background:#fff;border:1px solid var(--line);border-radius:7px;overflow:hidden;transition:.3s}.card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.card-img{height:145px;background:center/cover}.card-body{padding:18px}.card h3{font-size:15px;margin-bottom:7px}.card p{font-size:12px;color:var(--muted)}
+.icon{color:var(--cyan);font-size:21px;margin-bottom:8px}
+.products{background:#fff}.product-grid{grid-template-columns:repeat(6,1fr)}
+.product{background:#fff;border:1px solid var(--line);border-radius:6px;overflow:hidden;cursor:pointer;transition:.25s}.product:hover,.product.active{border-color:var(--cyan);box-shadow:0 10px 28px rgba(8,185,213,.13);transform:translateY(-3px)}
+.product img{width:100%;height:150px;display:block;object-fit:cover}.product-body{padding:13px}.product h3{font-size:13px}.price{color:var(--cyan2);font-weight:900;margin-top:5px;font-size:13px}
+.designer{background:var(--navy);color:#fff}.designer-layout{display:grid;grid-template-columns:250px 1fr 250px;gap:25px;align-items:stretch}
+.tile-picks{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-content:start}.pick{cursor:pointer;text-align:center;font-size:10px;color:#d4e1e5}.pick img{height:76px;width:100%;object-fit:cover;border-radius:4px;border:2px solid transparent;margin-bottom:5px}.pick.active img{border-color:var(--cyan)}
+.pool-wrap{position:relative;border-radius:8px;overflow:hidden;min-height:430px;background:#0b2833}
+.pool-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tile-overlay{position:absolute;inset:0;opacity:.53;mix-blend-mode:multiply;background-size:90px 90px;background-repeat:repeat;transition:.5s}
+.pool-shine{position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.18),transparent 32%,transparent 68%,rgba(0,0,0,.2))}
+.pool-label{position:absolute;bottom:18px;left:18px;background:rgba(4,18,25,.75);backdrop-filter:blur(8px);padding:12px 15px;border-radius:5px;font-size:12px}
+.detail h3{font-size:21px;margin-bottom:4px}.detail .bigprice{color:var(--cyan);font-size:24px;font-weight:900;margin:8px 0 20px}.check{margin-top:10px;font-size:12px;color:#c9d7db}.check:before{content:"✓";color:var(--cyan);margin-right:8px;font-weight:900}
+.calc{background:#fff}.calc-box{display:grid;grid-template-columns:1fr 1fr 1fr 1.15fr;gap:14px;align-items:end}.field label{display:block;font-size:11px;font-weight:800;text-transform:uppercase;color:#63747c;margin-bottom:7px}.field input,.field select,.field textarea{width:100%;border:1px solid #cfdadd;border-radius:4px;padding:12px;background:#fff;outline:none}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--cyan)}
+.total{background:var(--navy);color:#fff;border-radius:7px;padding:22px}.total small{color:#b9cbd0}.total h3{font-size:29px;color:var(--cyan);margin:3px 0 10px}.breakdown{font-size:12px;color:#c5d1d4}.breakdown div{display:flex;justify-content:space-between;padding:4px 0}.note{font-size:11px;color:var(--muted);margin-top:13px}
+.projects{background:var(--paper)}.project-grid{grid-template-columns:repeat(5,1fr)}.project img{width:100%;height:220px;object-fit:cover}.project figcaption{background:#fff;padding:13px;font-size:12px}.project figcaption strong{display:block;font-size:13px}
+.contact{background:var(--navy);color:#fff;position:relative;overflow:hidden}.contact:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,16,22,.96),rgba(3,16,22,.75)),url("https://images.unsplash.com/photo-1572331165267-854da2b10ccc?auto=format&fit=crop&w=1800&q=80") center/cover}.contact .container{position:relative}.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:70px}.contact h2{font-size:43px;line-height:1.05;margin-bottom:14px}.contact p{color:#c7d4d8}.contact-info{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:35px}.info strong{display:block;font-size:12px;color:var(--cyan);text-transform:uppercase;letter-spacing:1px}.info span{font-size:13px;color:#d7e1e3}
+.form{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);padding:25px;border-radius:8px;backdrop-filter:blur(10px)}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.form .field label{color:#b9c9cd}.form input,.form select,.form textarea{background:rgba(255,255,255,.94)}.form textarea{min-height:100px;resize:vertical}.full{grid-column:1/-1}
+.footer{background:#04131a;color:#9cafb4;padding:22px 0;font-size:11px}.footer-inner{display:flex;justify-content:space-between;gap:15px}.footer a:hover{color:#fff}
+.reveal{opacity:0;transform:translateY(25px);transition:.7s ease}.reveal.show{opacity:1;transform:none}
+.toast{position:fixed;right:20px;bottom:20px;background:#fff;color:var(--ink);box-shadow:var(--shadow);border-left:4px solid var(--cyan);padding:14px 18px;border-radius:5px;transform:translateY(120px);transition:.3s;z-index:50;font-size:13px}.toast.show{transform:none}
+@keyframes rise{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:none}}
+@media(max-width:1050px){.services,.product-grid{grid-template-columns:repeat(3,1fr)}.designer-layout{grid-template-columns:190px 1fr}.detail{grid-column:1/-1}.project-grid{grid-template-columns:repeat(3,1fr)}.calc-box{grid-template-columns:1fr 1fr}.total{grid-column:1/-1}}
+@media(max-width:760px){.nav-links{display:none}.hero{min-height:720px}.hero h1{letter-spacing:-2px}.stats{gap:18px;flex-wrap:wrap}.stats .stat{min-width:120px}.services,.product-grid,.project-grid{grid-template-columns:1fr 1fr}.designer-layout,.contact-grid{grid-template-columns:1fr}.pool-wrap{min-height:330px}.calc-box{grid-template-columns:1fr}.total{grid-column:auto}.form-grid{grid-template-columns:1fr}.full{grid-column:auto}.contact-info{grid-template-columns:1fr}.footer-inner{flex-direction:column}}
+@media(max-width:470px){section{padding:65px 0}.services,.product-grid,.project-grid{grid-template-columns:1fr}.hero-content{padding-top:140px}.hero h1{font-size:43px}.stats strong{font-size:22px}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="#" class="logo"><span class="logo-mark">≈</span><span>AQUA BUILT<small>POOLS & CONSTRUCTION</small></span></a>
+    <div class="nav-links">
+      <a href="#services">Services</a><a href="#products">Tiles</a><a href="#designer">Designer</a><a href="#calculator">Calculator</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+    </div>
+    <a href="#contact" class="btn">GET A QUOTE</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container hero-content">
+    <div class="kicker">Premium pool & property specialists</div>
+    <h1>BUILT TO LAST.<br>DESIGNED TO INSPIRE.</h1>
+    <p>We build and renovate swimming pools, install premium tiles and flooring, and deliver dependable property services for homes, resorts and commercial spaces.</p>
+    <div class="actions"><a href="#services" class="btn">OUR SERVICES</a><a href="#contact" class="btn outline">FREE CONSULTATION</a></div>
+    <div class="stats"><div class="stat"><strong>15+</strong><span>Years Experience</span></div><div class="stat"><strong>500+</strong><span>Projects Completed</span></div><div class="stat"><strong>100%</strong><span>Quality Focused</span></div><div class="stat"><strong>On Time</strong><span>Project Delivery</span></div></div>
+  </div>
+</header>
+
+<section id="services">
+<div class="container">
+  <div class="section-head reveal"><div class="kicker">What we do</div><h2>Complete solutions, from the ground up.</h2><p>One experienced team for pool construction, renovations, finishes and property improvements.</p></div>
+  <div class="grid services reveal">
+    <article class="card"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1572331165267-854da2b10ccc?auto=format&fit=crop&w=900&q=85')"></div><div class="card-body"><div class="icon">◫</div><h3>Swimming Pool Construction</h3><p>Custom pool design and construction for residential and commercial properties.</p></div></article>
+    <article class="card"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=900&q=85')"></div><div class="card-body"><div class="icon">↻</div><h3>Pool Renovation</h3><p>Modernize finishes, waterproofing, equipment and surrounding areas.</p></div></article>
+    <article class="card"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=900&q=85')"></div><div class="card-body"><div class="icon">◆</div><h3>Tiles & Flooring</h3><p>Premium tile and flooring installation with precise craftsmanship.</p></div></article>
+    <article class="card"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=85')"></div><div class="card-body"><div class="icon">⌂</div><h3>Residential Services</h3><p>Maintenance, repairs and improvement works for your home.</p></div></article>
+    <article class="card"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=85')"></div><div class="card-body"><div class="icon">▦</div><h3>Resorts & Hotels</h3><p>Specialized solutions for resorts, hotels and leisure facilities.</p></div></article>
+    <article class="card"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=900&q=85')"></div><div class="card-body"><div class="icon">▣</div><h3>Commercial Projects</h3><p>High-quality construction and finishing for commercial spaces.</p></div></article>
+  </div>
+</div>
+</section>
+
+<section id="products" class="products">
+<div class="container">
+  <div class="section-head reveal"><div class="kicker">Premium materials</div><h2>Pool tiles & finishes</h2><p>Sample retail pricing shown per square metre. Product availability and final installation pricing should be confirmed before purchase.</p></div>
+  <div id="productGrid" class="grid product-grid reveal"></div>
+</div>
+</section>
+
+<section id="designer" class="designer">
+<div class="container">
+  <div class="section-head reveal"><div class="kicker">Design your dream pool</div><h2>Swimming Pool Tile Designer</h2><p style="color:#b7c9ce">Choose a realistic tile finish and see it applied over an actual pool photograph.</p></div>
+  <div class="designer-layout reveal">
+    <div><div id="pickGrid" class="tile-picks"></div></div>
+    <div class="pool-wrap"><img class="pool-photo" src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1500&q=88" alt="Luxury residential swimming pool"><div id="tileOverlay" class="tile-overlay"></div><div class="pool-shine"></div><div class="pool-label">LIVE PREVIEW · <b id="poolTileName">Ocean Blue Mosaic</b></div></div>
+    <aside class="detail"><div class="kicker">Selected tile</div><h3 id="detailName">Ocean Blue Mosaic</h3><small id="detailType">Glass Mosaic Tile</small><div class="bigprice" id="detailPrice">₱1,850 / sqm</div><p id="detailDesc" style="color:#b7c9ce;font-size:12px">Vibrant blue glass mosaic that creates a clean, resort-style water effect.</p><div class="check">Ideal for pool walls & floors</div><div class="check">Water features</div><div class="check">Spas & jacuzzis</div></aside>
+  </div>
+</div>
+</section>
+
+<section id="calculator" class="calc">
+<div class="container">
+  <div class="section-head reveal"><div class="kicker">Project planning</div><h2>Project cost calculator</h2><p>Get a quick budget range based on project area and selected finish.</p></div>
+  <div class="calc-box reveal">
+    <div class="field"><label>Project type</label><select id="projectType"><option value="1">Swimming Pool</option><option value=".75">Pool Renovation</option><option value=".6">Tiles & Flooring</option><option value=".5">General Property Works</option></select></div>
+    <div class="field"><label>Area (sqm)</label><input id="area" type="number" min="1" value="50"></div>
+    <div class="field"><label>Tile selection</label><select id="tileSelect"></select></div>
+    <div class="total"><small>Estimated project cost</small><h3 id="grandTotal">₱119,250</h3><div class="breakdown"><div><span>Tiles</span><span id="tileCost">₱92,500</span></div><div><span>Labor & installation</span><span id="laborCost">₱18,500</span></div><div><span>Materials & adhesives</span><span id="matCost">₱6,250</span></div><div><span>Contingency (2%)</span><span id="contingency">₱2,000</span></div></div></div>
+  </div>
+  <p class="note reveal">Note: This is an estimate only. Final pricing may vary based on site condition, access, structural requirements, design and actual material quantities.</p>
+</div>
+</section>
+
+<section id="projects" class="projects">
+<div class="container">
+  <div class="section-head reveal"><div class="kicker">Our work</div><h2>Featured projects</h2><p>Selected examples of the environments our team can build, renovate and finish.</p></div>
+  <div class="grid project-grid reveal">
+    <figure class="card project"><img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1000&q=88" alt="Luxury resort pool"><figcaption><strong>Luxury Resort Pool</strong>Boracay Island</figcaption></figure>
+    <figure class="card project"><img src="https://images.unsplash.com/photo-1572331165267-854da2b10ccc?auto=format&fit=crop&w=1000&q=88" alt="Modern private pool"><figcaption><strong>Modern Private Pool</strong>Ayala Alabang</figcaption></figure>
+    <figure class="card project"><img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1000&q=88" alt="Infinity pool"><figcaption><strong>Infinity Pool & Deck</strong>Tagaytay City</figcaption></figure>
+    <figure class="card project"><img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1000&q=88" alt="Hotel pool"><figcaption><strong>Hotel Pool Renovation</strong>Cebu City</figcaption></figure>
+    <figure class="card project"><img src="https://images.unsplash.com/photo-1519315901367-f34ff9154487?auto=format&fit=crop&w=1000&q=88" alt="Commercial pool"><figcaption><strong>Commercial Pool Project</strong>Clark, Pampanga</figcaption></figure>
+  </div>
+</div>
+</section>
+
+<section id="contact" class="contact">
+<div class="container contact-grid">
+  <div class="reveal"><div class="kicker">Get in touch</div><h2>Let's build your dream project.</h2><p>Tell us about your project. Our team can help you plan the scope, materials and next steps.</p>
+    <div class="contact-info"><div class="info"><strong>Phone</strong><span>+63 912 345 6789</span></div><div class="info"><strong>Email</strong><span>info@aquabuilt.com.ph</span></div><div class="info"><strong>Address</strong><span>125 Pioneer Drive, Parañaque City, Metro Manila</span></div><div class="info"><strong>Business Hours</strong><span>Mon–Sat · 8:00 AM–6:00 PM</span></div></div>
+  </div>
+  <form class="form reveal" id="quoteForm">
+    <div class="form-grid">
+      <div class="field"><label>Full name</label><input required placeholder="Your full name"></div>
+      <div class="field"><label>Email address</label><input required type="email" placeholder="you@example.com"></div>
+      <div class="field"><label>Phone number</label><input placeholder="+63 ..."></div>
+      <div class="field"><label>Project type</label><select><option>Swimming Pool Construction</option><option>Pool Renovation</option><option>Tiles & Flooring</option><option>Residential Services</option><option>Resort / Hotel</option><option>Commercial Project</option></select></div>
+      <div class="field full"><label>Message</label><textarea placeholder="Tell us about your project, approximate area, location and target timeline..."></textarea></div>
+      <div class="full"><button class="btn" type="submit">SEND QUOTE REQUEST</button></div>
+    </div>
+  </form>
+</div>
+</section>
+
+<footer class="footer"><div class="container footer-inner"><span>© 2026 Aqua Built Pools & Construction. All rights reserved.</span><span>Premium pools · tiles · flooring · property services</span></div></footer>
+<div class="toast" id="toast">Thanks! Your quote request has been captured for this demo.</div>
+
+<script>
+const tiles=[
+ {name:"Ocean Blue Mosaic",type:"Glass Mosaic Tile",price:1850,desc:"Vibrant blue glass mosaic that creates a clean, resort-style water effect.",img:"https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=700&q=85",texture:"linear-gradient(135deg,#0b6f9a 25%,#18a5c2 25%,#18a5c2 50%,#075a85 50%,#075a85 75%,#34bdd1 75%)"},
+ {name:"Bali Stone Grey",type:"Natural Stone Tile",price:2250,desc:"Cool grey stone character for understated contemporary pools and terraces.",img:"https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=700&q=85",texture:"linear-gradient(125deg,#7d8584 0%,#b6b9b3 32%,#727775 55%,#d0d0c9 75%,#777b78 100%)"},
+ {name:"Skyline Blue",type:"Porcelain Pool Tile",price:1650,desc:"Blue porcelain finish with a crisp, luminous appearance and easy maintenance.",img:"https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=700&q=85",texture:"linear-gradient(135deg,#216c9b,#71b6d1 25%,#174f88 45%,#80c4da 65%,#226c9b)"},
+ {name:"Pearl White",type:"Glass Mosaic Tile",price:1950,desc:"Soft pearl tones for a bright, elegant pool interior with a spa-like finish.",img:"https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=700&q=85",texture:"linear-gradient(135deg,#d9dbd5,#fffef8 28%,#c9cbc5 45%,#f5f3e9 67%,#c4c6c1)"},
+ {name:"Volcano Black",type:"Natural Stone Tile",price:2450,desc:"Deep charcoal stone for dramatic modern pools, steps and outdoor features.",img:"https://images.unsplash.com/photo-1519315901367-f34ff9154487?auto=format&fit=crop&w=700&q=85",texture:"linear-gradient(120deg,#272a29,#505452 25%,#1d2020 48%,#676966 70%,#292b2a)"},
+ {name:"Sandy Beach",type:"Textured Porcelain",price:1550,desc:"Warm sandy neutral that pairs naturally with light stone, timber and tropical landscapes.",img:"https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=700&q=85",texture:"linear-gradient(120deg,#c4aa83,#e1d0ae 28%,#b79b76 47%,#ead9bb 70%,#c2a77e)"}
+];
+const peso=n=>"₱"+Math.round(n).toLocaleString("en-PH");
+const productGrid=document.getElementById("productGrid"),pickGrid=document.getElementById("pickGrid"),tileSelect=document.getElementById("tileSelect");
+let selected=0;
+tiles.forEach((t,i)=>{
+ productGrid.insertAdjacentHTML("beforeend",`<article class="product ${i===0?'active':''}" data-i="${i}"><img src="${t.img}" alt="${t.name}"><div class="product-body"><h3>${t.name}</h3><div class="price">${peso(t.price)} / sqm</div></div></article>`);
+ pickGrid.insertAdjacentHTML("beforeend",`<div class="pick ${i===0?'active':''}" data-i="${i}"><img src="${t.img}" alt="${t.name}"><div>${t.name}</div></div>`);
+ tileSelect.insertAdjacentHTML("beforeend",`<option value="${i}">${t.name} — ${peso(t.price)} / sqm</option>`);
+});
+function choose(i){
+ selected=i; const t=tiles[i];
+ document.querySelectorAll(".product,.pick").forEach(x=>x.classList.toggle("active",+x.dataset.i===i));
+ document.getElementById("tileOverlay").style.backgroundImage=t.texture;
+ document.getElementById("tileOverlay").style.backgroundSize=i===0?"54px 54px":"120px 120px";
+ document.getElementById("poolTileName").textContent=t.name;
+ document.getElementById("detailName").textContent=t.name;
+ document.getElementById("detailType").textContent=t.type;
+ document.getElementById("detailPrice").textContent=peso(t.price)+" / sqm";
+ document.getElementById("detailDesc").textContent=t.desc;
+ tileSelect.value=i; calculate();
+}
+document.addEventListener("click",e=>{const el=e.target.closest("[data-i]");if(el)choose(+el.dataset.i)});
+tileSelect.addEventListener("change",e=>choose(+e.target.value));
+document.getElementById("area").addEventListener("input",calculate);
+document.getElementById("projectType").addEventListener("change",calculate);
+function calculate(){
+ const area=Math.max(1,+document.getElementById("area").value||1), factor=+document.getElementById("projectType").value, t=tiles[selected];
+ const tile=area*t.price, labor=area*370*factor, materials=area*125, sub=tile+labor+materials, cont=sub*.02, total=sub+cont;
+ document.getElementById("tileCost").textContent=peso(tile);
+ document.getElementById("laborCost").textContent=peso(labor);
+ document.getElementById("matCost").textContent=peso(materials);
+ document.getElementById("contingency").textContent=peso(cont);
+ document.getElementById("grandTotal").textContent=peso(total);
+}
+choose(0);
+const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("show")}),{threshold:.12});
+document.querySelectorAll(".reveal").forEach(x=>io.observe(x));
+document.getElementById("quoteForm").addEventListener("submit",e=>{e.preventDefault();document.getElementById("toast").classList.add("show");e.target.reset();setTimeout(()=>document.getElementById("toast").classList.remove("show"),3500)});
+</script>
+</body>
+</html>
